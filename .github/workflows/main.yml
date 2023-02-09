@@ -14,4 +14,4 @@ jobs:
       - run: ssh $${{ secrets.TENCENT_USER }}@${{ secrets.TENCENT_PASSWORD }}
 
       - name: Pull Blogs
-      - run: cd static-blogs && echo "Pull Start..." && git pull origin main
+        run: cd static-blogs && echo "Pull Start..." && git pull origin main
