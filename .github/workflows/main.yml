@@ -12,9 +12,9 @@ jobs:
 
     steps:
       - name: Login Tencent
-        uses: docker://evaneos/ssh-action:0.1.0
+        uses: appleboy/ssh-action@master
         with:
-          hosts: ${{ secrets.TENCENT_IP }}
-          user: ${{ secrets.TENCENT_USER }}
-          private_key: ${{ secrets.TENCENT_SSH_KEY }}
-          commands: cd /root/static-blogs && echo "Pull Start..." && git pull origin main
+          host: ${{ secrets.TENCENT_IP }}
+          username: ${{ secrets.TENCENT_USER }}
+          password: ${{ secrets.TENCENT_PWD }}
+          script: cd ~/static-blogs && git pull origin main
