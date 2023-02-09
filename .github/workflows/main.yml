@@ -7,7 +7,7 @@ on:
 
 jobs:
   login:
-    name: login tencent and pull
+    name: login tencent and pull blogs
     runs-on: ubuntu-latest
 
     steps:
