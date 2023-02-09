@@ -12,9 +12,9 @@ jobs:
 
     steps:
       - name: Login Tencent
-        uses: appleboy/ssh-action@master
+        uses: garygrossgarten/github-action-ssh@release
         with:
           host: ${{ secrets.TENCENT_IP }}
           username: ${{ secrets.TENCENT_USER }}
           password: ${{ secrets.TENCENT_PWD }}
-          script: cd ~/static-blogs && git pull origin main
+          command: cd ~/static-blogs && git pull origin main
