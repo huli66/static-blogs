@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: Login Tencent
-        uses: appleboy/sshpass-action@master
+        uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.TENCENT_IP }}
           username: ${{ secrets.TENCENT_USER }}
