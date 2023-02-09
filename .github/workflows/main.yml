@@ -1,0 +1,17 @@
+name: Pull Blogs
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  login:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login Tencent
+      - run: ssh $${{ secrets.TENCENT_USER }}@${{ secrets.TENCENT_PASSWORD }}
+
+      - name: Pull Blogs
+      - run: cd static-blogs && echo "Pull Start..." && git pull origin main
