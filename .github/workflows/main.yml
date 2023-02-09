@@ -7,14 +7,15 @@ on:
 
 jobs:
   login:
+    name: login tencent and pull
     runs-on: ubuntu-latest
 
     steps:
       - name: Login Tencent
         uses: matheusvanzan/sshpass-action@v1
         with:
-          host: $${{ secrets.TENCENT_IP }}
-          username: $${{ secrets.TENCENT_USER }}
+          host: ${{ secrets.TENCENT_IP }}
+          username: ${{ secrets.TENCENT_USER }}
           password: ${{ secrets.TENCENT_PWD }}
 
       - name: Pull Blogs
