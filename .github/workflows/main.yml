@@ -19,4 +19,4 @@ jobs:
           password: ${{ secrets.TENCENT_PWD }}
 
       - name: Pull Blogs
-        run: cd static-blogs && echo "Pull Start..." && git pull origin main
+        run: cd ~/static-blogs && echo "Pull Start..." && git pull origin main
