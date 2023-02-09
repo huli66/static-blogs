@@ -17,7 +17,7 @@ docker pull huli66/blog-backend:latest
 
 # 运行新的容器，容器的 4090 端口映射到本机的 3090 端口
 echo -e "----------docker Run----------"
-docker container run -d -p 3090:4090 --rm --name backend  --volume "$PWD/static-blogs/blogs":/app/blogs huli66/blog-backend:latest
+docker container run -d -p 3090:4090 --rm --name backend  --volume "/root/static-blogs/blogs":/app/blogs huli66/blog-backend:latest
 
 # docker container run
 # -d # 在后台运行
