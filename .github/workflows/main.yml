@@ -11,7 +11,11 @@ jobs:
 
     steps:
       - name: Login Tencent
-        run: ssh $${{ secrets.TENCENT_USER }}@${{ secrets.TENCENT_PASSWORD }}
+        uses: matheusvanzan/sshpass-action@v1
+        with:
+          host: $${{ secrets.TENCENT_IP }}
+          username: $${{ secrets.TENCENT_USER }}
+          password: ${{ secrets.TENCENT_PWD }}
 
       - name: Pull Blogs
         run: cd static-blogs && echo "Pull Start..." && git pull origin main
