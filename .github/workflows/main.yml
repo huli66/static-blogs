@@ -11,15 +11,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # - name: Login Tencent
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.TENCENT_IP }}
-      #     username: ${{ secrets.TENCENT_USER }}
-      #     password: ${{ secrets.TENCENT_PWD }}
-      - name: SSH Login
-        run: ssh ${{ TENCENT_USER }}@${{ TENCENT_IP }}
-        input: ${{ secrets.TENCENT_PWD }}
-
-      - name: Pull Blogs
-        run: cd /root/static-blogs && echo "Pull Start..." && git pull origin main
+      - name: Login Tencent
+        uses: docker://evaneos/ssh-action:0.1.0
+        with:
+          hosts: ${{ secrets.TENCENT_IP }}
+          user: ${{ secrets.TENCENT_USER }}
+          private_key: ${{ secrets.TENCENT_SSH_KEY }}
+          commands: cd /root/static-blogs && echo "Pull Start..." && git pull origin main
